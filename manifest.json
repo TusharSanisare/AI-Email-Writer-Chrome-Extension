@@ -1,0 +1,35 @@
+{
+  "name": "AI Email Writer Extension",
+  "description": "AI-powered email reply generater: It's like having a personal assistant to help you write eamil",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://ai-email-writer-cvpu.onrender.com/api/email/generate/*",
+    "*://mail.google.com/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts":[
+    {
+      "js":["content.js"],
+      "matches":["*://mail.google.com/*"],
+      "css":["content.css"],
+      "run_at":"document_end"
+    }
+  ],
+  "web_accessible_resources":[
+    {
+      "resources": ["icons/*"],
+      "matches": ["*://mail.google.com/*"]
+    }
+  ],
+  "action": {
+    "default_title": "AI Email Writer Extension",
+    "default_icon": "logo.png"
+  }
+}
+
